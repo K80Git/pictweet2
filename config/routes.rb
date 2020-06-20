@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :tweets, only: [:index, :new]
+  #resources にて自動でルートを設定できる→　indexとnewコントローラーに対し作成
 end
