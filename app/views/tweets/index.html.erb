@@ -1,0 +1,23 @@
+<div class="contents row">
+  <% @tweets.each do |tweet| %>
+  <%# @tweetに格納されたハッシュを配列回数,変数tweetに入れ実施する%>
+    <div class="content_post" style="background-image: url(<%= tweet.image %>);">
+    <%# HTMLでstyleのbackground-imageを指定する、URLは繰り返し配列ハッシュのうち、key->imageを取り出す%>
+    <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <%# ????????????????要確認%>
+        <ul class="more_list">
+          <li>
+            <%= link_to '削除', tweet_path(tweet.id), method: :delete %>
+            <%# link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+            <%#ボタンに「削除」と記載、リクエストとして、削除ボタンを押した配列ハッシュのIDとdeleteとの情報をリクエストに送信する%>
+          </li>
+        </ul>
+      </div>
+      <p><%= tweet.text %></p>
+      <span class="name">
+        <%= tweet.name %>
+      </span>
+    </div>
+  <% end %>
+</div>
